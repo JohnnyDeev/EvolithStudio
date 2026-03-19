@@ -4,7 +4,6 @@ const navLinks = [
   { label: 'Início', href: '#inicio' },
   { label: 'Quem Somos', href: '#quem-somos' },
   { label: 'Projetos', href: '#projetos' },
-  { label: 'Seu Projeto', href: '#seu-projeto' },
 ]
 
 export default function Navbar() {
@@ -28,6 +27,7 @@ export default function Navbar() {
   return (
     <>
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+        <div className="navbar-inner">
         <a className="navbar-brand" href="#inicio" onClick={(e) => { e.preventDefault(); handleLinkClick('#inicio') }}>
           <img src="/logo.png" alt="Evolith Studio" className="navbar-logo" />
           <span className="navbar-title">EVOLITH STUDIO</span>
@@ -59,6 +59,7 @@ export default function Navbar() {
           <span />
           <span />
           <span />
+        </div>
         </div>
       </nav>
 

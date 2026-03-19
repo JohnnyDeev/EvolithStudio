@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useCallback } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Layout, Cloud, Database, Sparkles } from 'lucide-react'
@@ -124,6 +124,36 @@ export default function About() {
     }
   }, [])
 
+  // easter egg: pulo + rotação no ícone ao entrar no card
+  const iconRefs = useRef<(HTMLDivElement | null)[]>([])
+  const animatingRef = useRef<boolean[]>(techCards.map(() => false))
+
+  const handleIconHover = useCallback((index: number) => {
+    const iconEl = iconRefs.current[index]
+    if (!iconEl || animatingRef.current[index]) return
+
+    animatingRef.current[index] = true
+
+    gsap.timeline({
+      onComplete: () => { animatingRef.current[index] = false },
+    })
+      .to(iconEl, {
+        y: -18,
+        rotation: 180,
+        scale: 1.25,
+        duration: 0.28,
+        ease: 'power2.out',
+      })
+      .to(iconEl, {
+        y: 0,
+        rotation: 360,
+        scale: 1,
+        duration: 0.38,
+        ease: 'bounce.out',
+      })
+      .set(iconEl, { rotation: 0 })
+  }, [])
+
   // efeito de inclinação 3D nos cards
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const card = e.currentTarget
@@ -177,10 +207,14 @@ export default function About() {
               <div
                 key={i}
                 className="tech-card"
+                onMouseEnter={() => handleIconHover(i)}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
               >
-                <div className="tech-card-icon">
+                <div
+                  className="tech-card-icon"
+                  ref={el => { iconRefs.current[i] = el }}
+                >
                   <Icon size={48} strokeWidth={1.5} />
                 </div>
                 <h3 className="tech-card-title">{card.title}</h3>

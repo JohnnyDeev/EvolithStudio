@@ -1,15 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { MessageCircle, Mail, Send } from 'lucide-react'
+import { MessageCircle, Mail } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null)
   const formRef = useRef<HTMLDivElement>(null)
-  const visualRef = useRef<HTMLDivElement>(null)
-
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -31,18 +29,10 @@ export default function Contact() {
     }
 
     if (formRef.current) {
-      gsap.set(formRef.current, { opacity: 0, x: -50 })
+      gsap.set(formRef.current, { opacity: 0, y: 40 })
       gsap.to(formRef.current, {
         scrollTrigger: { trigger: formRef.current, start: 'top 85%', toggleActions: 'play none none none', once: true },
-        opacity: 1, x: 0, duration: 0.8, ease: 'power3.out',
-      })
-    }
-
-    if (visualRef.current) {
-      gsap.set(visualRef.current, { opacity: 0, x: 50 })
-      gsap.to(visualRef.current, {
-        scrollTrigger: { trigger: visualRef.current, start: 'top 85%', toggleActions: 'play none none none', once: true },
-        opacity: 1, x: 0, duration: 0.8, ease: 'power3.out', delay: 0.2,
+        opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
       })
     }
   }, [])
@@ -81,7 +71,7 @@ export default function Contact() {
         </div>
 
         <div className="contact-wrapper">
-          <div ref={formRef}>
+          <div ref={formRef} className="contact-form-wrapper">
             <div className="contact-form">
               <div className="form-group">
                 <label className="form-label">Seu Nome</label>
@@ -157,19 +147,14 @@ export default function Contact() {
                   Enviar por Email
                 </button>
               </div>
-            </div>
-          </div>
 
-          <div className="contact-visual" ref={visualRef}>
-            <div className="contact-visual-icon">
-              <Send size={60} color="#fff" strokeWidth={1.5} />
+              <p className="contact-hint">
+                Preencha e envie diretamente pelo{' '}
+                <strong style={{ color: '#25D366' }}>WhatsApp</strong> ou{' '}
+                <strong style={{ color: '#00D4FF' }}>Email</strong>.
+                Responderemos o mais rápido possível!
+              </p>
             </div>
-            <p className="contact-visual-text">
-              Preencha o formulário e entre em contato diretamente pelo
-              <strong style={{ color: '#25D366' }}> WhatsApp</strong> ou
-              <strong style={{ color: '#00D4FF' }}> Email</strong>.
-              Responderemos o mais rápido possível!
-            </p>
           </div>
         </div>
       </div>

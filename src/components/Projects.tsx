@@ -218,21 +218,31 @@ export default function Projects() {
       })
     }
 
-    const cards = gridRef.current.querySelectorAll('.project-card')
-    gsap.set(cards, { opacity: 0, y: 60 })
-    gsap.to(cards, {
-      scrollTrigger: {
-        trigger: gridRef.current,
-        start: 'top 80%',
-        toggleActions: 'play none none none',
-        once: true,
-      },
-      opacity: 1,
-      y: 0,
-      duration: 0.7,
-      stagger: 0.1,
-      ease: 'power3.out',
+    const cards = Array.from(gridRef.current.querySelectorAll('.project-card')) as HTMLElement[]
+
+    // Animação de entrada: apenas translate — opacity fica no CSS para não quebrar o glass
+    cards.forEach((card) => {
+      card.style.transform = 'translateY(60px)'
+      card.style.transition = 'none'
     })
+
+    const trigger = ScrollTrigger.create({
+      trigger: gridRef.current,
+      start: 'top 95%',
+      once: true,
+      onEnter: () => {
+        cards.forEach((card, i) => {
+          setTimeout(() => {
+            card.style.transition = 'transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.3s'
+            card.style.transform = ''
+          }, i * 100)
+        })
+      },
+    })
+
+    return () => {
+      trigger.kill()
+    }
   }, [])
 
   // Tilt 3D para os cards dos projetos

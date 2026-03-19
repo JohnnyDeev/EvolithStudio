@@ -8,7 +8,7 @@ export default function Footer() {
 
   return (
     <footer className="footer">
-      <div className="footer-content">
+      <div className="footer-inner">
         <div className="footer-brand">
           <img src="/logo.png" alt="Evolith Studio" className="footer-logo" />
           <p className="footer-tagline">EVOLITH STUDIO</p>
