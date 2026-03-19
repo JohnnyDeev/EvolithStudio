@@ -8,10 +8,10 @@ export default function Footer() {
 
   return (
     <footer className="footer">
-      <div className="footer-inner">
+      <div className="footer-content">
         <div className="footer-brand">
           <img src="/logo.png" alt="Evolith Studio" className="footer-logo" />
-          <span className="footer-title">EVOLITH STUDIO</span>
+          <p className="footer-tagline">EVOLITH STUDIO</p>
         </div>
 
         <nav className="footer-links">

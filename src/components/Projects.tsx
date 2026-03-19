@@ -3,21 +3,21 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import {
   ShoppingCart, Smartphone, Monitor, Camera,
-  Palette, HelpCircle, CircleDot, Rocket,
+  Palette, HelpCircle, CircleDot, Rocket, Cog,
 } from 'lucide-react'
 import ProjectModal, { type Project } from './ProjectModal'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const projectIcons = [ShoppingCart, Smartphone, Monitor, Camera, Palette, HelpCircle, CircleDot, Rocket]
+const projectIcons = [ShoppingCart, Smartphone, Monitor, Camera, Palette, HelpCircle, CircleDot, Rocket, Cog]
 
 const projects: Project[] = [
   {
     id: 1,
-    title: 'E-commerce Completo',
+    title: 'Plataforma E-Commerce Moderna',
     tag: 'Site',
     tagClass: '',
-    shortDesc: 'Loja virtual com pagamento integrado, frete automático e dashboard administrativo.',
+    shortDesc: 'O E-commerce Completo para Impulsionar Suas Vendas',
     fullDesc: 'Plataforma e-commerce completa, desde o catálogo de produtos com busca e filtros avançados até o checkout com múltiplos métodos de pagamento. O dashboard administrativo permite gerenciar pedidos, estoque, clientes e relatórios em tempo real. Design responsivo premium com carrinho persistente e experiência de compra fluida.',
     features: [
       'Catálogo com busca e filtros inteligentes',
@@ -30,14 +30,14 @@ const projects: Project[] = [
       'SEO otimizado para Google Shopping',
     ],
     techs: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'Redis', 'AWS'],
-    image: '/e-CommerceCompleto.png',
+    image: '/e-commerce-completo.png',
   },
   {
     id: 2,
-    title: 'App de Pedidos',
+    title: 'App de Pedidos & Delivery',
     tag: 'App',
     tagClass: 'app',
-    shortDesc: 'Cardápio digital completo com sistema de entregas e integração WhatsApp.',
+    shortDesc: 'Aumente Suas Vendas com o Seu Próprio App de Entregas',
     fullDesc: 'Aplicativo de pedidos com cardápio digital interativo, categorias, combos e personalização de itens. Sistema completo de delivery com rastreamento, painel de cozinha para gerenciar preparo e impressão automática. Integração direta com WhatsApp para confirmação e atualização de status dos pedidos.',
     features: [
       'Cardápio digital interativo com categorias',
@@ -50,14 +50,14 @@ const projects: Project[] = [
       'Relatórios de vendas detalhados',
     ],
     techs: ['Flutter', 'Node.js', 'Firebase', 'API WhatsApp', 'Maps'],
-    image: '/AppdePedidos.png',
+    image: '/app-de-pedidos.png',
   },
   {
     id: 3,
-    title: 'Display Controlado',
-    tag: 'App',
-    tagClass: 'app',
-    shortDesc: 'Sistema de 2 telas: painel de controle + display público sincronizado.',
+    title: 'Display Interativo Controlado',
+    tag: 'Sistema',
+    tagClass: 'sistema',
+    shortDesc: 'Totems Touchscreen e Displays Conectados ao Seu Negócio',
     fullDesc: 'Sistema de exibição profissional com duas telas sincronizadas em tempo real. A tela de controle permite configurar conteúdo, sequências e temporizadores, enquanto o display público exibe mídia, textos, rankings e informações dinâmicas. Ideal para lojas, eventos, filas e painéis informativos.',
     features: [
       'Duas telas sincronizadas em tempo real',
@@ -70,14 +70,14 @@ const projects: Project[] = [
       'Múltiplos layouts pré-configurados',
     ],
     techs: ['React', 'WebSocket', 'Node.js', 'Firebase', 'Canvas API'],
-    image: '/DisplayControlado.png',
+    image: '/display-controlado.png',
   },
   {
     id: 4,
-    title: 'Studio de Fotos IA',
+    title: 'Estúdio de Fotos com IA',
     tag: 'App',
     tagClass: 'app',
-    shortDesc: 'Edição de fotos com molduras temáticas e inteligência artificial.',
+    shortDesc: 'Sistema de edição automática de fotos com molduras temáticas e processamento por Inteligência Artificial.',
     fullDesc: 'Aplicativo de edição de fotos que combina molduras temáticas profissionais com recursos de inteligência artificial. O usuário escolhe entre dezenas de templates para festas, formaturas, natal e eventos, ajusta a foto automaticamente com IA e pode compartilhar ou imprimir diretamente. Perfeito para eventos, festas e pontos de venda.',
     features: [
       'Galeria de molduras temáticas (50+)',
@@ -90,14 +90,14 @@ const projects: Project[] = [
       'Personalização de marca para B2B',
     ],
     techs: ['Flutter', 'TensorFlow Lite', 'Canvas', 'Firebase', 'Python'],
-    image: '/Studio de Fotos IA.png',
+    image: '/studio-de-fotos-ia.png',
   },
   {
     id: 5,
-    title: 'Aquarela Kids',
+    title: 'Aplicativo Educativo - Aquarela Kids',
     tag: 'App',
     tagClass: 'app',
-    shortDesc: 'App infantil de colorir com dezenas de desenhos, publicado na PlayStore.',
+    shortDesc: 'Transforme o Aprendizado em uma Aventura Interativa em 3D',
     fullDesc: 'Aplicativo educativo de colorir para crianças, com interface intuitiva e segura. Conta com dezenas de desenhos temáticos (animais, natureza, veículos, etc.), paleta de cores ampla, opção de preenchimento e pincel. Publicado na PlayStore com controle parental e totalmente offline.',
     features: [
       'Dezenas de desenhos temáticos',
@@ -110,14 +110,14 @@ const projects: Project[] = [
       'Publicado na Google PlayStore',
     ],
     techs: ['Flutter', 'Canvas API', 'Firebase', 'PlayStore'],
-    image: '/Aquarela Kids.png',
+    image: '/aquarela-kids.png',
   },
   {
     id: 6,
-    title: 'Quiz Comercial',
-    tag: 'App',
-    tagClass: 'app',
-    shortDesc: 'Quiz totalmente personalizável para eventos comerciais e promoções.',
+    title: 'Quiz Interativo para Eventos',
+    tag: 'Game',
+    tagClass: 'game',
+    shortDesc: 'Ferramenta personalizada para engajar o público e captar contatos em feiras, eventos e ações comerciais.',
     fullDesc: 'Plataforma de quiz interativo totalmente personalizável pelo cliente. Permite criar perguntas, definir respostas, ajustar tempo, personalizar cores e logotipos da marca. Ideal para promoções em eventos, stands, feiras e lojas. Com ranking em tempo real e exportação de dados dos participantes.',
     features: [
       'Editor de perguntas e respostas',
@@ -130,14 +130,14 @@ const projects: Project[] = [
       'Relatórios de engajamento',
     ],
     techs: ['React', 'Node.js', 'WebSocket', 'Firebase', 'Canvas'],
-    image: '/quizComercial.png',
+    image: '/quiz-comercial.png',
   },
   {
     id: 7,
-    title: 'Roleta de Prêmios',
-    tag: 'App',
-    tagClass: 'app',
-    shortDesc: 'Roleta digital com estoque gerenciável e modo de resultado controlado.',
+    title: 'Roleta de Prêmios Customizada',
+    tag: 'Game',
+    tagClass: 'game',
+    shortDesc: 'Atraia Múltiplos Visitantes e Recompense o seu Público com Prêmios',
     fullDesc: 'Roleta digital profissional para promoções e eventos. Permite configurar prêmios com estoque controlado, definir probabilidades e ativar modo de resultado controlado para garantir distribuição planejada. Visual impactante com animações suaves e som. Display em tempo real dos prêmios disponíveis.',
     features: [
       'Configuração de prêmios e probabilidades',
@@ -150,14 +150,14 @@ const projects: Project[] = [
       'Exportação de resultados',
     ],
     techs: ['React', 'Canvas API', 'Node.js', 'Firebase', 'GSAP'],
-    image: '/roletadepremios.png',
+    image: '/roleta-de-premios.png',
   },
   {
     id: 8,
-    title: 'Space Defenders',
+    title: 'Jogo Controlado por Gestos (Space Defenders)',
     tag: 'Game',
     tagClass: 'game',
-    shortDesc: 'Jogo de nave espacial controlado por gestos com ranking global.',
+    shortDesc: 'Experiência inovadora onde o jogador controla uma nave apenas com movimentos das mãos, via câmera, sem necessidade de toque.',
     fullDesc: 'Jogo de nave espacial arcade com controle por gestos da mão usando visão computacional. O jogador defende a galáxia de asteróides e inimigos usando movimentos naturais captados pela câmera. Com ranking global, power-ups, chefes de fase e gráficos neon vibrantes. Perfeito para stands interativos.',
     features: [
       'Controle por gestos (visão computacional)',
@@ -170,7 +170,27 @@ const projects: Project[] = [
       'Modo stand para eventos',
     ],
     techs: ['Unity', 'C#', 'MediaPipe', 'Firebase', 'WebGL'],
-    image: '/spacedefenders.png',
+    image: '/space-defenders.png',
+  },
+  {
+    id: 9,
+    title: 'Automação de Processos',
+    tag: 'Sistema',
+    tagClass: 'sistema',
+    shortDesc: 'Softwares personalizados para automatizar tarefas repetitivas, preenchimento de planilhas e geração de relatórios inteligentes para sua equipe.',
+    fullDesc: 'Imagine sua equipe livre das tarefas repetitivas que consomem horas de trabalho todo dia. Nossos sistemas de automação substituem processos manuais por fluxos inteligentes: preenchem planilhas automaticamente, consolidam dados de múltiplas fontes, geram relatórios profissionais em PDF e disparam notificações por e-mail ou WhatsApp sem nenhuma intervenção humana. O resultado? Menos erros, mais velocidade e colaboradores focados no que realmente importa para o crescimento do negócio.',
+    features: [
+      'Preenchimento automático de planilhas Excel/Google Sheets',
+      'Geração de relatórios em PDF agendados (diário, semanal, mensal)',
+      'Integração com ERP, CRM e sistemas legados via API',
+      'Consolidação de dados de múltiplas fontes em um único painel',
+      'Envio automático de relatórios por e-mail e WhatsApp',
+      'Alertas e notificações configuráveis por evento ou horário',
+      'Dashboard em tempo real com indicadores-chave (KPIs)',
+      'Histórico de execuções com logs detalhados para auditoria',
+    ],
+    techs: ['Python', 'Node.js', 'Google Sheets API', 'PostgreSQL', 'n8n', 'AWS Lambda'],
+    image: '/automacao.png',
   },
 ]
 
@@ -237,9 +257,9 @@ export default function Projects() {
     <section className="section" id="projetos">
       <div className="section-container">
         <div className="section-header">
-          <h2 className="section-title">Nossos Projetos</h2>
+          <h2 className="section-title">Alguns de Nossos Projetos</h2>
           <p className="section-subtitle">
-            Cada projeto é único, construído sob medida para resolver
+            Cada solução é única, construída sob medida para resolver
             desafios reais com <span className="highlight">tecnologia de ponta</span>.
           </p>
         </div>
@@ -260,7 +280,7 @@ export default function Projects() {
                     <img 
                       src={project.image} 
                       alt={project.title} 
-                      className={`project-card-image ${[1, 2, 3, 4, 6, 8].includes(project.id) ? 'zoomed' : ''}`} 
+                      className={`project-card-image ${[1, 2, 3, 4, 6, 8, 9].includes(project.id) ? 'zoomed' : ''}`} 
                     />
                   ) : (
                     <Icon size={56} strokeWidth={1.2} />

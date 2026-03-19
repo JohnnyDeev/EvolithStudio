@@ -1,30 +1,30 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Code2, Shield, Server, Database } from 'lucide-react'
+import { Layout, Cloud, Database, Sparkles } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const techCards = [
   {
-    icon: Code2,
-    title: 'Tecnologia Moderna',
-    desc: 'React, Flutter, Node.js, Python, TypeScript e as frameworks mais atuais do mercado.',
+    icon: Layout,
+    title: 'Frontend & Mobile',
+    desc: 'React, Flutter e TypeScript. Interfaces responsivas e performáticas para qualquer dispositivo.',
   },
   {
-    icon: Shield,
-    title: 'Segurança Total',
-    desc: 'HTTPS, criptografia de ponta, conformidade com LGPD e proteção de dados em todas as camadas.',
-  },
-  {
-    icon: Server,
-    title: 'Infraestrutura Premium',
-    desc: 'Hospedagem em AWS, Vercel e Firebase com alta disponibilidade e escalabilidade global.',
+    icon: Cloud,
+    title: 'Backend & Cloud',
+    desc: 'Node.js, Python, Firebase e AWS. Infraestrutura escalável com foco em disponibilidade.',
   },
   {
     icon: Database,
-    title: 'Dados Robustos',
-    desc: 'PostgreSQL, MongoDB, Firestore e Redis para performance e confiabilidade dos seus dados.',
+    title: 'Database',
+    desc: 'PostgreSQL, Firestore e Redis. Modelagem de dados otimizada para velocidade e integridade.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Specialties',
+    desc: 'Integração de IA, Visão Computacional e Gamificação. Soluções inovadoras sob medida.',
   },
 ]
 
@@ -143,30 +143,34 @@ export default function About() {
   }
 
   return (
-    <section className="section section-alt" id="quem-somos" ref={sectionRef}>
+    <section className="section section-alt about-section-fs" id="quem-somos" ref={sectionRef}>
       <div className="section-container">
         <div className="section-header">
           <h2 className="section-title">Quem Somos</h2>
-          <p className="section-subtitle">
-            Transformamos desafios em soluções digitais de alto impacto
-          </p>
         </div>
 
         <p className="about-text">
-          A <strong>Evolith Studio</strong> nasceu da paixão por criar
-          <span className="highlight"> experiências digitais extraordinárias</span>.
-          Somos especializados em desenvolvimento sob demanda, utilizando as
-          <strong> tecnologias mais modernas do mercado</strong> para entregar
-          soluções que superam expectativas.
-          Cada projeto é tratado com dedicação total, desde a arquitetura
-          até a entrega final, garantindo <span className="highlight">performance,
-          segurança e design impecável</span>.
-          Trabalhamos com os melhores hosts e bancos de dados do mercado,
-          porque sabemos que a base de um grande produto é uma
-          <strong> infraestrutura sólida</strong>.
+          Na <strong>Evolith Studio</strong> projetamos soluções. Combinamos infraestrutura sólida
+          com as frameworks mais modernas para entregar softwares que são <span className="highlight">rápidos, seguros e visualmente impactantes</span>.
+          Se o desafio exige inovação — seja um sistema de IA ou um game interativo — nós entregamos a engenharia necessária.
         </p>
+        <div className="stats-row" ref={statsRef}>
+          {stats.map((stat, i) => (
+            <div key={i} className="stat-item">
+              <div
+                className="stat-number"
+                data-value={stat.value}
+                data-suffix={stat.suffix}
+              >
+                0{stat.suffix}
+              </div>
+              <div className="stat-label">{stat.label}</div>
+            </div>
+          ))}
+        </div>
 
-        <div className="tech-grid" ref={cardsRef}>
+        {/* Tech Stack DEPOIS */}
+        <div className="tech-grid" ref={cardsRef} style={{ marginTop: '4rem' }}>
           {techCards.map((card, i) => {
             const Icon = card.icon
             return (
@@ -184,21 +188,6 @@ export default function About() {
               </div>
             )
           })}
-        </div>
-
-        <div className="stats-row" ref={statsRef}>
-          {stats.map((stat, i) => (
-            <div key={i} className="stat-item">
-              <div
-                className="stat-number"
-                data-value={stat.value}
-                data-suffix={stat.suffix}
-              >
-                0{stat.suffix}
-              </div>
-              <div className="stat-label">{stat.label}</div>
-            </div>
-          ))}
         </div>
       </div>
     </section>

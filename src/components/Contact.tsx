@@ -13,6 +13,7 @@ export default function Contact() {
   const [form, setForm] = useState({
     name: '',
     email: '',
+    phone: '',
     type: '',
     description: '',
   })
@@ -52,7 +53,8 @@ export default function Contact() {
 
   const buildMessage = () => {
     const typeLabel = form.type || 'Não informado'
-    return `Olá! Meu nome é ${form.name || 'Não informado'}.%0A%0ATipo de projeto: ${typeLabel}%0A%0ADescrição: ${form.description || 'Não informada'}%0A%0AEmail para contato: ${form.email || 'Não informado'}`
+    const phoneInfo = form.phone ? `%0ATelefone/WhatsApp: ${form.phone}` : ''
+    return `Olá! Meu nome é ${form.name || 'Não informado'}.%0A%0ATipo de projeto: ${typeLabel}${phoneInfo}%0A%0ADescrição: ${form.description || 'Não informada'}%0A%0AEmail para contato: ${form.email || 'Não informado'}`
   }
 
   const handleWhatsApp = () => {
@@ -106,6 +108,18 @@ export default function Contact() {
               </div>
 
               <div className="form-group">
+                <label className="form-label">WhatsApp / Telefone</label>
+                <input
+                  type="text"
+                  name="phone"
+                  className="form-input"
+                  placeholder="(00) 00000-0000"
+                  value={form.phone}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="form-group">
                 <label className="form-label">Tipo de Projeto</label>
                 <select
                   name="type"
@@ -127,7 +141,7 @@ export default function Contact() {
                 <textarea
                   name="description"
                   className="form-textarea"
-                  placeholder="Conte um pouco sobre o que você precisa..."
+                  placeholder="Ex: Quero um app de delivery com integração com whatsapp que eu receba os pedidos direto no whatsapp da minha loja em tempo real." 
                   value={form.description}
                   onChange={handleChange}
                 />

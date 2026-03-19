@@ -24,6 +24,7 @@
   --text-dim: #C0C0C0;
   --text-bright: #FFFFFF;
   --success: #10B981;
+  --purple: #8B5CF6;
   --whatsapp: #25D366;
   --shadow-glow: 0 0 40px rgba(232, 241, 242, 0.15);
   --shadow-glow-purple: 0 0 40px rgba(192, 192, 192, 0.15);
@@ -330,8 +331,10 @@ input, textarea, select {
 }
 
 .hero-logo {
-  width: 240px;
-  height: 240px;
+  max-width: 240px;
+  max-height: 240px;
+  width: auto;
+  height: auto;
   filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.5)) drop-shadow(0 0 60px rgba(139, 92, 246, 0.3));
   animation: logoPulse 4s ease-in-out infinite;
 }
@@ -354,7 +357,8 @@ input, textarea, select {
   transform: translateY(30px);
 }
 
-.hero-title .gradient-word {
+.hero-title .gradient-word,
+.hero-subtitle .gradient-word {
   background: var(--colorful-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -374,6 +378,7 @@ input, textarea, select {
   gap: 1.25rem;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 2rem; /* Add some space before the scroll indicator */
 }
 
 .btn-primary,
@@ -416,7 +421,7 @@ input, textarea, select {
 
 .hero-scroll-indicator {
   position: absolute;
-  bottom: 2rem;
+  bottom: 3rem; /* Slightly further up but with enough gap from CTAs */
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
@@ -469,6 +474,13 @@ input, textarea, select {
 
 .section-alt {
   background: var(--bg-section);
+}
+
+.about-section-fs {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .section-container {
@@ -524,7 +536,7 @@ input, textarea, select {
   max-width: 800px;
   margin: 0 auto 4rem;
   text-align: center;
-  font-size: 1.05rem;
+  font-size: 1.25rem;
   line-height: 1.9;
   color: var(--text-dim);
 }
@@ -737,17 +749,36 @@ input, textarea, select {
   border: 1px solid rgba(0, 212, 255, 0.2);
 }
 
-.project-card-tag.app {
+.project-card-tag.web {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--cyan);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.project-card-tag.ia {
   background: rgba(139, 92, 246, 0.1);
   color: var(--purple);
   border-color: rgba(139, 92, 246, 0.2);
 }
 
-.project-card-tag.game {
+.project-card-tag.app {
   background: rgba(16, 185, 129, 0.1);
   color: var(--success);
   border-color: rgba(16, 185, 129, 0.2);
 }
+
+.project-card-tag.game {
+  background: rgba(245, 158, 11, 0.1);
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.project-card-tag.sistema {
+  background: rgba(251, 113, 133, 0.1);
+  color: #fb7185;
+  border-color: rgba(251, 113, 133, 0.2);
+}
+
 
 .project-card-title {
   font-size: 1.15rem;
@@ -1194,3 +1225,15 @@ input, textarea, select {
     -ms-overflow-style: none;
   }
 }
+
+@keyframes bounce { 
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 
+  40% { transform: translateY(-10px); } 
+  60% { transform: translateY(-5px); } 
+} 
+
+@keyframes scroll-drop { 
+  0% { transform: translateY(-100%); } 
+  100% { transform: translateY(200%); } 
+}
+
